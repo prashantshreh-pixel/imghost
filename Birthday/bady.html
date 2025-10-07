@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Happy Birthday 💖</title>
+  <style>
+    :root{
+      --bg1:#ffefef;
+      --bg2:#fff0ff;
+      --accent:#ff6fb5;
+      --muted:#6b6b6b;
+      --card:#ffffffee;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: linear-gradient(135deg,var(--bg1) 0%, var(--bg2) 100%);
+      -webkit-font-smoothing:antialiased;
+      color:#333;
+      padding:24px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .card{
+      width:100%;
+      max-width:960px;
+      background:var(--card);
+      border-radius:18px;
+      padding:28px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      position:relative;
+      overflow:hidden;
+    }
+
+    header{
+      display:flex;
+      gap:18px;
+      align-items:center;
+      margin-bottom:18px;
+    }
+
+    .title{
+      font-size:28px;
+      font-weight:700;
+      letter-spacing:-0.5px;
+      color:#3b034a;
+    }
+
+    .subtitle{color:var(--muted); font-size:13px}
+
+    .heart{
+      width:68px;height:68px;border-radius:50%;
+      display:grid;place-items:center;background:linear-gradient(180deg,#fff 0,#ffd1ea 100%);
+      box-shadow: 0 6px 18px rgba(255,107,167,0.18);
+      transform:translateY(-6px);
+    }
+    .heart::after{content:'❤'; font-size:28px; color:var(--accent)}
+
+    main{display:grid;grid-template-columns:1fr 320px;gap:20px}
+
+    .left{padding-right:6px}
+    p{line-height:1.55;margin:12px 0;font-size:15px}
+
+    .gallery{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+    .photo{width:calc(50% - 6px);height:120px;border-radius:10px;overflow:hidden;position:relative;background:#f6f4ff;display:block;transform-origin:center center;animation:jiggle 3s ease-in-out infinite;box-shadow:0 6px 18px rgba(54,16,60,0.06)}
+    .photo img{width:100%;height:100%;object-fit:cover;display:block}
+
+    @keyframes jiggle{
+      0%{transform: translateY(0) rotate(0deg)}
+      25%{transform: translateY(-6px) rotate(-1.5deg)}
+      50%{transform: translateY(0) rotate(0.5deg)}
+      75%{transform: translateY(-4px) rotate(-0.6deg)}
+      100%{transform: translateY(0) rotate(0deg)}
+    }
+
+    footer{margin-top:18px;text-align:center;color:var(--muted);font-size:13px}
+
+    .float-hearts{position:absolute;inset:0;pointer-events:none}
+    .float-hearts i{position:absolute;font-size:18px;opacity:0.9;animation:floatUp 6s linear infinite;transform-origin:center}
+    .float-hearts i:nth-child(1){left:12%;bottom:8%;animation-duration:5s}
+    .float-hearts i:nth-child(2){left:32%;bottom:12%;animation-duration:6s}
+    .float-hearts i:nth-child(3){left:52%;bottom:6%;animation-duration:7s}
+    .float-hearts i:nth-child(4){left:72%;bottom:12%;animation-duration:5.6s}
+    .float-hearts i:nth-child(5){left:88%;bottom:4%;animation-duration:6.8s}
+
+    @keyframes floatUp{
+      0%{transform:translateY(0) scale(1);opacity:1}
+      50%{opacity:0.9}
+      100%{transform:translateY(-380px) scale(1.15);opacity:0}
+    }
+
+    @media (max-width:880px){main{grid-template-columns:1fr} .photo{width:calc(33.333% - 8px);height:100px}}
+    @media (max-width:520px){.photo{width:calc(50% - 6px);height:90px}}
+  </style>
+</head>
+<body>
+  <div class="card" role="main">
+    <div class="float-hearts" aria-hidden="true">
+      <i style="color:#ffbfdc">❤</i>
+      <i style="color:#ffd7e6">❤</i>
+      <i style="color:#ff9fc9">❤</i>
+      <i style="color:#ffc6e3">❤</i>
+      <i style="color:#ffb0d8">❤</i>
+    </div>
+
+    <header>
+      <div class="heart" aria-hidden="true"></div>
+      <div>
+        <div class="title">Happy Birthday, love! 🎂</div>
+        <div class="subtitle">A tiny page I made just for you — enjoy the jiggling photos, and read the lovey-dovey notes.</div>
+      </div>
+    </header>
+
+    <main>
+      <section class="left">
+        <p>Hey gorgeous — today is all about you. I thought I'd write a few tiny notes and sprinkle the page with photos that jiggle because you make my heart do the same.</p>
+        <p>Remember the coffee morning and the silly little dance we did? You're the sparkle in my boring days and the softest blanket on a rainy night. I hope this page makes you smile.</p>
+        <p>Here’s a cute little GIF just for you 💕</p>
+
+        <div style="text-align:center;margin:20px 0">
+          <img id="birthdayGif" src="" alt="birthday gif" style="max-width:100%;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.08)" />
+        </div>
+
+        <div class="gallery" id="gallery">
+          <a class="photo" href="#" aria-hidden="true"><img src="https://photos.app.goo.gl/m4CwGAxsvfWkpHq98" alt="sweet photo 1"></a>
+          <a class="photo" href="#" aria-hidden="true"><img src="https://drive.google.com/file/d/1Q9ZCzUAKM9AbEI_35ilvdl5bp2KHpDu1/view?usp=sharing" alt="sweet photo 2"></a>
+          <a class="photo" href="#" aria-hidden="true"><img src="https://drive.google.com/file/d/1srDMfWxuEkCEkH8f-FkSqk_b1zfqEW2D/view?usp=drive_link" alt="sweet photo 3"></a>
+          <a class="photo" href="#" aria-hidden="true">
+            <img src="https://drive.google.com/uc?export=view&id=18JNuv5TQl_hXA7HN5_peUa1hDUei1OTr" alt="sweet photo 4">
+          </a>
+        </div>
+
+        <footer>
+          Made with lots of love 💕 — play the music, dance, and enjoy your day.
+          <div style="margin-top:8px">
+            <audio controls loop id="birthdayMusic">
+              <source src="your-music-file.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+        </footer>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // simple confetti when page loads
+    function burstConfetti(amount){
+      for(let i=0;i<amount;i++){
+        const el=document.createElement('div');
+        el.textContent='🎉';
+        el.style.position='fixed';
+        el.style.left=(20+Math.random()*60)+'%';
+        el.style.top=(50+Math.random()*30)+'%';
+        el.style.fontSize=(12+Math.random()*26)+'px';
+        el.style.transform='translateY(0)';
+        el.style.opacity='1';
+        el.style.pointerEvents='none';
+        el.style.transition='transform 1.6s ease-out, opacity 1.6s linear';
+        document.body.appendChild(el);
+        requestAnimationFrame(()=>{
+          el.style.transform='translateY(-500px) rotate('+(Math.random()*720-360)+'deg)';
+          el.style.opacity='0';
+        });
+        setTimeout(()=>el.remove(),1700);
+      }
+    }
+    setTimeout(()=>burstConfetti(50),1000);
+
+    // photo click animation
+    document.querySelectorAll('.photo').forEach(p=>{
+      p.addEventListener('click',e=>{
+        e.preventDefault();
+        p.animate([{transform:'scale(1)'},{transform:'scale(1.06)'},{transform:'scale(1)'}],{duration:420,easing:'ease-out'});
+      });
+    });
+  </script>
+</body>
+</html>
